@@ -94,9 +94,9 @@ router.post('/login', async (req, res) => {
             };
 
             // signs the JWT using the secret defined in the .env file
-            jwt.sign(user._id, JWT_SECRET);
+            const authtoken = jwt.sign(payload, JWT_SECRET);
 
-            res.json({ authtoken, userName, userEmail });
+            return res.status(200).json({ authtoken, userName, userEmail });
         }
         else {
             // Task 7: Send appropriate message if user not found

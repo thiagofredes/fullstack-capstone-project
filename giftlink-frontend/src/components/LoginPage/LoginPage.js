@@ -21,7 +21,7 @@ function LoginPage() {
     const handleLogin = async () => {
         try {
             //first task
-            const response = await fetch(`/api/auth/login`, {
+            const response = await fetch(`${urlConfig.backendUrl}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -29,7 +29,7 @@ function LoginPage() {
                 },
                 body: JSON.stringify({ //always stringify anything sent in the body of a request
                     email: email,
-                    password, password
+                    password: password
                 })
             });
 
