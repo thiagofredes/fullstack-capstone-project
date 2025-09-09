@@ -136,6 +136,7 @@ router.put('/update', async (req, res) => {
         const collection = db.collection("users");
         const existingUser = await collection.findOne({ email });
 
+        existingUser.firstName = req.body.name;
         existingUser.updatedAt = new Date();
         // Task 6: update user credentials in database
         const updatedUser = await collection.findOneAndUpdate(

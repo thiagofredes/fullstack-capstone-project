@@ -53,13 +53,6 @@ const Profile = () => {
         });
     };
 
-    const handleInputChange = (e) => {
-        setUpdatedDetails({
-            ...updatedDetails,
-            [e.target.name]: e.target.value,
-        });
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -82,7 +75,7 @@ const Profile = () => {
                 },
                 body: JSON.stringify(payload),//Step 1: Task 3
             });
-            
+
             if (response.ok) {
                 // Update the user details in session storage
                 setUserName(updatedDetails.name);//Step 1: Task 4
